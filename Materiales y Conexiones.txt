@@ -1,0 +1,56 @@
+Materiales :
+
+- Arduino Uno, Nano, Mini, Mega, etc.
+- LCD 2004 I2C
+- Keypad 3x4
+- PIR sensor  (tiempo al mínimo, sensibilidad la necesaria)
+- Receptor 433Mhz (grabar el mando: Emisor 433Mhz) FS1000A
+- Leds rojo y verde (unir anodo+ con catodo- y conectar al A1)
+- Resistencias 220 ó 330 ohms (2)
+- Buzzer 5v
+- Mando Remoto 433Mhz (4 botones) 
+- Relé de 5v (o transistor BD139 para sirena 12v)
+- Sirena (pequeña de 12v o grande a 220v)
+
+
+Conexiones :
+
+A1 - LEDs rojo y verde
+A2 - Relé de 5v para Sirena 
+A3 - Buzzer
+A4 - LCD SDA
+A5 - LCD SCL
+
+D2 - Receptor 433Mhz data (FS1000A)
+
+D3 - PIR
+D4 - RX - TRANSCEPTOR HC-12 433Mhz
+D5 - TX - TRANSCEPTOR HC-12 433Mhz
+
+D6 -   1 Keypad
+D7 -   2      "
+D8 -   3      "
+D9 -   4      "
+D10 - 5      "
+D11 - 6      "
+D12 - 7      "
+
+Programas:
+Mando_leer es para ver los códigos grabados en cada mando remoto.
+Mando_grabar es para poner los códigos propios en los mandos (hace falta el emisor de 433Mhz, se venden con el receptor)
+Eeprom es para grabar por primera vez la eeprom, para los que no dominen la programación en arduino.
+En el Alarma433pir3c.ino hay una linea en el Setup que pone:
+// weprom();
+La primera vez hay que "descomentarla" y cargar el prog. en el arduino para que grabe los datos en la eeprom:
+weprom();
+y después volver a comentarla:
+// weprom();
+para desactivarla, luego cargar de nuevo el prog. para que no grabe los datos cada vez que se resetea el arduino o se vaya la luz.
+Si no se quiere hacer esto, se carga el programa eeprom y después el alarma433 y listo.
+
+Mando_ Grabar : https://www.youtube.com/watch?v=-W1-pw_T83Q&feature=youtu.be
+Mando_leer : https://www.youtube.com/watch?v=FoLc2DEtjgg&feature=youtu.be
+
+En el programa de grabar, ahora se hace directamente por el puerto Serial, se escribe el código + intro y el emisor lo envía, 0 + intro sirve de pausa entre códigos
+Hay que resetear el mando para dejarlo en modo "Copy" como si fuéramos a copiar de otro mando.
+Una antenita ayuda, si no se tiene, con un cable de cobre rígido de 16,5cm sirve de antena.
