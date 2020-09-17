@@ -1,1 +1,27 @@
+************************************************************************
 Comenzaremos la programacion de una alarma en arduino
+************************************************************************
+
+
+----------------------------------------------------------------------
+Materiales: 
+
+* display LCD 16x2
+* teclado 4x4 botones (para activación y desactivación por clave)
+* 2x LEDs de estado: verde para sistema (conectado y rojo para indicación de disparo)
+* 2x sensores infrarrojos
+* 2x sensores de contacto 
+* Bocina.
+* Reloj para registro de eventos (RTC)
+
+----------------------------------------------------------------------
+
+** El dispositivo se interconecta por cableado. Puede establecer comunicación por puerto serie con la Pc
+permitiendo registrar algunos eventos y configurar algunas opciones
+
+----------------------------------------------------------------------
+
+** Se reconocen 3 estados: reposo (actuador, sensores e indicadores luminosos desconectados);
+* Activado: en el momento que se ingresa la secuencia correcta de caracteres de la clave a través del teclado provisto (sensores e indicador LED verde activos)
+* Disparo: pasados n segundos desde el momento que se registra actividad de un sensor y hasta que se vuelve a ingresar la secuencia correcta de caracteres de la clave.
+Durante el período que permanece en estado “disparo” la bocina se mantiene activada y el indicador LED rojo encendido
