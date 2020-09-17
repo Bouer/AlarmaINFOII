@@ -26,3 +26,5 @@ permitiendo registrar algunos eventos y configurar algunas opciones
 * Activado: en el momento que se ingresa la secuencia correcta de caracteres de la clave a través del teclado provisto (sensores e indicador LED verde activos)
 * Disparo: pasados n segundos desde el momento que se registra actividad de un sensor y hasta que se vuelve a ingresar la secuencia correcta de caracteres de la clave.
 Durante el período que permanece en estado “disparo” la bocina se mantiene activada y el indicador LED rojo encendido
+
+----------------------------------------------------------------------
